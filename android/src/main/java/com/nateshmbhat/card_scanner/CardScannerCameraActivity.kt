@@ -37,7 +37,7 @@ class CardScannerCameraActivity : AppCompatActivity() {
   private var cameraSelector: CameraSelector? = null
   private var textRecognizer: TextRecognizer? = null
   private var analysisUseCase: ImageAnalysis? = null
-  private lateinit var cardScannerOptions: CardScannerOptions
+  private  var cardScannerOptions: CardScannerOptions? =null
   private lateinit var cameraExecutor: ExecutorService
   lateinit var animator: ObjectAnimator
   lateinit var scannerLayout: View
@@ -47,7 +47,7 @@ class CardScannerCameraActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.card_scanner_camera_activity)
-    cardScannerOptions = intent.getParcelableExtra<CardScannerOptions>(CARD_SCAN_OPTIONS)
+    cardScannerOptions = intent.getParcelableExtra<CardScannerOptions?>(CARD_SCAN_OPTIONS)
 
     scannerLayout = findViewById(R.id.scannerLayout);
     scannerBar = findViewById(R.id.scannerBar);
