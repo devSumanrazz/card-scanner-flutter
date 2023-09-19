@@ -10,13 +10,13 @@ data class CardScannerOptions(
         val scanCardHolderName: Boolean,
         val initialScansToDrop: Int,
         val validCardsToScanBeforeFinishingScan: Int,
-        val cardHolderNameBlackListedWords: List<String>,
+        val cardHolderNameBlackListedWords: ArrayList<String!>?,
         val considerPastDatesInExpiryDateScan: Boolean,
         val maxCardHolderNameLength: Int,
         val enableLuhnCheck: Boolean,
         val cardScannerTimeOut: Int,
         val enableDebugLogs: Boolean,
-        val possibleCardHolderNamePositions: List<String>
+        val possibleCardHolderNamePositions: ArrayList<String!>?
 ) : Parcelable {
 
   constructor(parcel: Parcel) : this(
