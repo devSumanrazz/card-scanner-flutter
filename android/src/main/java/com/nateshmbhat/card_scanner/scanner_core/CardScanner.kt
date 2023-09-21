@@ -6,6 +6,7 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import com.nateshmbhat.card_scanner.SingleFrameCardScanner
 import com.nateshmbhat.card_scanner.logger.debugLog
 import com.nateshmbhat.card_scanner.onCardScanFailed
@@ -50,7 +51,7 @@ class CardScanner(private val scannerOptions: CardScannerOptions, private val on
     if (mediaImage != null) {
       val image = InputImage.fromMediaImage(mediaImage, 90)
 
-      val recognizer = TextRecognition.getClient()
+      val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
       val result = recognizer.process(image)
               .addOnSuccessListener { visionText ->
