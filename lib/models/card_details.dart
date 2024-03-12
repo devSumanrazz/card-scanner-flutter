@@ -15,6 +15,14 @@ class CardDetails {
     _expiryDate = map['expiryDate'] ?? '';
   }
 
+  String get cardHolderName => _cardHolderName;
+
+  String get cardIssuer => _cardIssuer;
+
+  String get cardNumber => _cardNumber;
+
+  String get expiryDate => _expiryDate;
+
   Map<String, String> get map => {
         'cardNumber': _cardNumber,
         'cardIssuer': _cardIssuer,
@@ -28,15 +36,8 @@ class CardDetails {
     string += _cardNumber.isEmpty ? "" : 'Card Number = $cardNumber\n';
     string += _expiryDate.isEmpty ? "" : 'Expiry Date = $expiryDate\n';
     string += _cardIssuer.isEmpty ? "" : 'Card Issuer = $cardIssuer\n';
-    string += _cardHolderName.isEmpty ? "" : 'Card Holder Name = $cardHolderName\n';
+    string +=
+        _cardHolderName.isEmpty ? "" : 'Card Holder Name = $cardHolderName\n';
     return string;
   }
-
-  String get cardNumber => _cardNumber;
-
-  String get cardIssuer => _cardIssuer;
-
-  String get cardHolderName => _cardHolderName;
-
-  String get expiryDate => _expiryDate;
 }
