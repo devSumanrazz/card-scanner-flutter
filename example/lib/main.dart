@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  CardDetails _cardDetails;
+  CardDetails? _cardDetails;
   CardScanOptions scanOptions = CardScanOptions(
     scanCardHolderName: true,
     // enableDebugLogs: true,

@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 
 class OptionConfigureWidget extends StatefulWidget {
   final void Function(CardScanOptions scanOptions) onScanOptionChanged;
-  final CardScanOptions initialOptions;
+  final CardScanOptions? initialOptions;
 
   const OptionConfigureWidget(
-      {Key key, @required this.onScanOptionChanged, this.initialOptions})
+      {Key? key, required this.onScanOptionChanged, this.initialOptions})
       : super(key: key);
 
   @override
@@ -163,20 +163,22 @@ class _OptionConfigureWidgetState extends State<OptionConfigureWidget> {
   void initState() {
     if (widget.initialOptions != null) {
       final options = widget.initialOptions;
-      scanExpiryDate = options.scanExpiryDate;
-      scanCardHolderName = options.scanCardHolderName;
-      initialScansToDrop = options.initialScansToDrop;
+      scanExpiryDate = options?.scanExpiryDate ?? true;
+      scanCardHolderName = options?.scanCardHolderName ?? true;
+      initialScansToDrop = options?.initialScansToDrop ?? 1;
       validCardsToScanBeforeFinishingScan =
-          options.validCardsToScanBeforeFinishingScan;
-      cardHolderNameBlackListedWords = options.cardHolderNameBlackListedWords;
+          options?.validCardsToScanBeforeFinishingScan ?? 6;
+      cardHolderNameBlackListedWords =
+          options?.cardHolderNameBlackListedWords ?? [];
       considerPastDatesInExpiryDateScan =
-          options.considerPastDatesInExpiryDateScan;
-      maxCardHolderNameLength = options.maxCardHolderNameLength;
-      enableLuhnCheck = options.enableLuhnCheck;
-      cardScannerTimeOut = options.cardScannerTimeOut;
-      enableDebugLogs = options.enableDebugLogs;
+          options?.considerPastDatesInExpiryDateScan ?? false;
+      maxCardHolderNameLength = options?.maxCardHolderNameLength ?? 26;
+      enableLuhnCheck = options?.enableLuhnCheck ?? true;
+      cardScannerTimeOut = options?.cardScannerTimeOut ?? 0;
+      enableDebugLogs = options?.enableDebugLogs ?? false;
       possibleCardHolderNamePositions =
-          options.possibleCardHolderNamePositions.toSet();
+          options?.possibleCardHolderNamePositions.toSet() ??
+              {CardHolderNameScanPosition.belowCardNumber};
     }
     super.initState();
   }
